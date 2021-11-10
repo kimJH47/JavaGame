@@ -21,7 +21,7 @@ public class World {
     private int viewY;
     private byte[] tiles;
     private AABB[] bounding_boxes;
-    private List<Entity> entities;
+    public List<Entity> entities;
     private int width;
     private int height;
     private int scale;
