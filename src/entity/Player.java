@@ -1,6 +1,7 @@
 package entity;
 
 
+import game.Main;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
@@ -15,19 +16,19 @@ public class Player extends Entity {
     public static final int ANIM_WALK = 1;
     public static final int ANIM_SIZE = 2;
 
-    private int PlayerNumber = 1; // 사용자의 번호
-    int PlayerSlot; // 해당 캐릭터 자리
+    int playerSlot; // 해당 캐릭터 자리
+    int playerNumber;
 
     public Player(Transform transform,int ps) {
         super(ANIM_SIZE, transform);
-        this.PlayerSlot=ps;
+        this.playerSlot=ps;
         setAnimation(ANIM_IDLE, new Animation(4, 2, "player/idle"));
         setAnimation(ANIM_WALK, new Animation(4, 2, "player/walking"));
     }
 
     @Override
     public void update(float delta, Window window, Camera camera, World world) {
-        if(PlayerSlot==PlayerNumber)
+        if(playerSlot==Main.playerNumber)
         {
             Vector2f movement = new Vector2f();
 

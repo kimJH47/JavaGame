@@ -17,8 +17,11 @@ public abstract class Entity {
 
     protected Transform transform;
 
-    public String getLocation(){
-        return transform.pos.x+","+transform.pos.y;
+    public double getLocationX(){
+        return transform.pos.x;
+    }
+    public double getLocationY(){
+        return transform.pos.y;
     }
 
     public Entity(int max_animations, Transform transform) {

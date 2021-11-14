@@ -30,6 +30,7 @@ public class World {
 
     public static final int Player_Range = 4;
 
+
     public World(String world, Camera camera) {
         try {
             System.out.println("worid is "+world);

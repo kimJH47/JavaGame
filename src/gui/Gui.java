@@ -24,10 +24,6 @@ public class Gui {
         sheet = new TileSheet("gui.png", 9);
 
         //temporary = new Button(new Vector2f(-32, -32), new Vector2f(96, 96));
-
-        Font AWTfont = new Font("Times New Roman",Font.BOLD,24);
-        UnicodeFont font = new UnicodeFont(AWTfont);
-        font.drawString(5,5,"sex");
     }
 
     public void resizeCamera(Window window) {

@@ -37,7 +37,8 @@ public class TileRenderer {
 
     public void renderTile(Tile tile, int x, int y, Shader shader, Matrix4f world, Camera cam) {
         shader.bind();
-        if (tileTextures.containsKey(tile.getTexture())) tileTextures.get(tile.getTexture()).bind(0);
+        if (tileTextures.containsKey(tile.getTexture()))
+            tileTextures.get(tile.getTexture()).bind(0);
 
         Matrix4f tile_pos = new Matrix4f().translate(new Vector3f(x * 2, y * 2, 0));
         Matrix4f target = new Matrix4f();
