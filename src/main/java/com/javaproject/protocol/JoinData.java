@@ -10,12 +10,6 @@ public class JoinData implements Protocol {
     public static final short JOIN_REQUEST = 30;// join Request
     public static final short JOIN_ROOM = 40;
 
-    public static final short Player_One = 0;
-    public static final short Player_Two = 1;
-    public static final short Player_Three = 2;
-    public static final short Player_Four = 3;
-
-
     private boolean flag = false;
     private String message;
     private String name;

@@ -1,7 +1,7 @@
 package entity;
 
 
-import game.Main;
+import game.GameClient;
 import org.joml.Vector2f;
 import org.joml.Vector3f;
 import org.lwjgl.glfw.GLFW;
@@ -17,7 +17,6 @@ public class Player extends Entity {
     public static final int ANIM_SIZE = 2;
 
     int playerSlot; // 해당 캐릭터 자리
-    int playerNumber;
 
     public Player(Transform transform,int ps) {
         super(ANIM_SIZE, transform);
@@ -28,7 +27,7 @@ public class Player extends Entity {
 
     @Override
     public void update(float delta, Window window, Camera camera, World world) {
-        if(playerSlot==Main.playerNumber)
+        if(playerSlot== GameClient.playerNumber)
         {
             Vector2f movement = new Vector2f();
 

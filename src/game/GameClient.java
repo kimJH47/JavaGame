@@ -12,6 +12,7 @@ import assets.Assets;
 import gui.Gui;
 import io.Timer;
 import io.Window;
+import org.newdawn.slick.Game;
 import render.Camera;
 import render.Shader;
 import sound.PlaySound;
@@ -21,11 +22,11 @@ import world.World;
 import java.net.URL;
 
 
-public class Main {
+public class GameClient {
 
     static public int playerNumber;
 
-    public Main(int pn) {
+    public GameClient(int pn) {
         playerNumber = pn;
         Window.setCallbacks();
 
@@ -133,7 +134,7 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        new Main(1);
+        new GameClient(1);
     }
 
 }

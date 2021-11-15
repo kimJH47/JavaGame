@@ -4,6 +4,9 @@ import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
+
+import game.GameClient;
+import game.MooGgot;
 import main.java.com.javaproject.protocol.*;
 import main.java.com.javaproject.client.gui.*;
 
@@ -12,7 +15,7 @@ public class Client {
     private String ID;
     private int roomNum = -1;
     private final String IP = "127.0.0.1";
-    private final int port = 9002;
+    private final int port = 9001;
     private ObjectOutputStream out;
     private ObjectInputStream in;
     private Protocol data ;
@@ -68,7 +71,7 @@ public class Client {
         System.out.println("receive start");
         while (true) {
             try {
-                data = (Protocol) in.readObject();//???? �� �������� write �� ��ü�� �ƴ϶� ���� ������ ���� ��ü�� �ٽ� �޾ƿ���??
+                data = (Protocol) in.readObject();
                 System.out.println("receive: " + data);
                 if(data instanceof ChatData) {
                     analysisChatData((ChatData) data);
@@ -81,9 +84,10 @@ public class Client {
                 }else if(data instanceof SignUpData){
                     analysisSignData((SignUpData) data);
                 }else if (data.getProtocol() == JoinData.JOIN_ROOM) {
-                    roomNum = Integer.parseInt(data.getMessage());
-                    playerNum = Integer.parseInt(data.getName());
                     //start game client
+                    Thread thread = new Thread(()->{
+                        new GameClient(Integer.parseInt(data.getMessage()));
+                    });thread.start();
 
                     System.out.printf("%d Room join!\n", roomNum);
 
