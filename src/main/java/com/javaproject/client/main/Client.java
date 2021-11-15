@@ -86,7 +86,8 @@ public class Client {
                 }else if (data.getProtocol() == JoinData.JOIN_ROOM) {
                     //start game client
                     Thread thread = new Thread(()->{
-                        new GameClient(Integer.parseInt(data.getMessage()));
+                        System.out.println("게임 클라이언트 실행");
+                        new GameClient(Integer.parseInt(data.getName()));
                     });thread.start();
 
                     System.out.printf("%d Room join!\n", roomNum);
