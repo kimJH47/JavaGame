@@ -4,12 +4,9 @@ import org.joml.Vector2f;
 
 import io.Input;
 import io.Window;
-import org.newdawn.slick.UnicodeFont;
 import render.*;
 
 
-import org.newdawn.slick.TrueTypeFont;
-import java.awt.*;
 
 public class Gui {
     private Shader shader;

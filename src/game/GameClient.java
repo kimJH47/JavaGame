@@ -1,18 +1,17 @@
 package game;
 
 import static java.lang.System.exit;
+import static java.lang.Thread.sleep;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
 
 import entity.Entity;
-import org.lwjgl.Sys;
 import org.lwjgl.opengl.GL;
 
 import assets.Assets;
 import gui.Gui;
 import io.Timer;
 import io.Window;
-import org.newdawn.slick.Game;
 import render.Camera;
 import render.Shader;
 import sound.PlaySound;
@@ -62,7 +61,7 @@ public class GameClient {
         Shader shader = new Shader("shader");
 
         String[] worlds = {"test_level","moo_level","dalgona_level"};
-        World world =  new World(worlds[0], camera);
+        World world =  new World(worlds[2], camera);
         //Wolrd 생성 후 실행중에 World 바꾸지 않을 시 에러
         world.calculateView(window);
         //calculateView 적용해야 타일 보임
@@ -91,10 +90,19 @@ public class GameClient {
 
                 if (window.getInput().isKeyReleased(GLFW_KEY_ESCAPE)) {
                     //glfwSetWindowShouldClose(window.getWindow(), true);
+                    int tmp=world.entities.size();
+                    for(int i =0;i<tmp;i++) {
+                        world.entities.remove(0);
+                    }
                     Thread thread = new Thread(()->{
                     MooGgot mg = new MooGgot();
                     mg.active();
                     });thread.start();
+                }
+
+                if (window.getInput().isKeyReleased(GLFW_KEY_H)) {
+                    world = new World(worlds[0],camera);
+                    world.calculateView(window);
                 }
 
                 gui.update(window.getInput());

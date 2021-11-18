@@ -1,6 +1,5 @@
 package game;
 
-import org.lwjgl.Sys;
 import sound.PlaySound;
 
 import java.net.URL;
