@@ -1,13 +1,10 @@
-package main.java.com.javaproject.server;
+package com.javaproject.server;
 
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.Vector;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

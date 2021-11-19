@@ -136,13 +136,9 @@ public class GameClient {
         }
 
         Assets.deleteAsset();
-
         glfwTerminate();
-
     }
-
     public static void main(String[] args) {
         new GameClient(1);
     }
-
 }

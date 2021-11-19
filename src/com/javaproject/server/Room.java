@@ -1,11 +1,12 @@
-package main.java.com.javaproject.server;
+package com.javaproject.server;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Queue;
 import java.util.Set;
 
-import main.java.com.javaproject.protocol.*;
-
+import com.javaproject.protocol.ChatData;
+import com.javaproject.protocol.JoinData;
+import com.javaproject.protocol.Protocol;
 public class Room {
 
     Set<ClientHandler> clientList = new HashSet<>();

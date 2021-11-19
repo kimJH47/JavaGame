@@ -1,20 +1,21 @@
-package main.java.com.javaproject.client.main;
+package com.javaproject.client.main;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketAddress;
 
+import com.javaproject.client.gui.LobbyForm;
+import com.javaproject.protocol.*;
 import game.GameClient;
-import game.MooGgot;
-import main.java.com.javaproject.protocol.*;
-import main.java.com.javaproject.client.gui.*;
+import com.javaproject.protocol.*;
+import com.javaproject.client.gui.*;
 
 public class Client {
     private Socket socket;
     private String ID;
     private int roomNum = -1;
-    private final String IP = "127.0.0.1";
+    private final String IP = "172.26.15.217";
     private final int port = 9001;
     private ObjectOutputStream out;
     private ObjectInputStream in;
@@ -85,11 +86,22 @@ public class Client {
                     analysisSignData((SignUpData) data);
                 }else if (data.getProtocol() == JoinData.JOIN_ROOM) {
                     //start game client
-                    Thread thread = new Thread(()->{
-                        new GameClient(Integer.parseInt(data.getMessage()));
-                    });thread.start();
+                    /*
+                    System.out.println("으악");
 
-                    System.out.printf("%d Room join!\n", roomNum);
+                    Thread thread = new Thread(()->{
+                        System.out.println("으악");
+                        new GameClient(1);//Integer.parseInt(data.getName()));
+                    });thread.start();
+                    */
+                    new GameClient(1);
+
+
+                    System.out.println("why wg1232154 ");
+
+                    System.out.println("으악");
+
+                    System.out.printf("%d Room join!  으악\n", roomNum);
 
                 }
             } catch (Exception e) {

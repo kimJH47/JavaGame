@@ -1,12 +1,12 @@
-package main.java.com.javaproject.server;
+package com.javaproject.server;
 
 import java.io.EOFException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.SocketException;
-import main.java.com.javaproject.protocol.*;
 
+import com.javaproject.protocol.*;
 public class ClientHandler {
 
     Socket socket;

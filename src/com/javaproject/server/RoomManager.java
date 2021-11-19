@@ -1,11 +1,8 @@
-package main.java.com.javaproject.server;
+package com.javaproject.server;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import main.java.com.javaproject.protocol.*;
+
+import com.javaproject.protocol.Protocol;
 
 public class RoomManager {
 

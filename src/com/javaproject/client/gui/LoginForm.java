@@ -1,7 +1,8 @@
-package main.java.com.javaproject.client.gui;
+package com.javaproject.client.gui;
 
-import main.java.com.javaproject.client.main.Main;
-import main.java.com.javaproject.protocol.*;
+import com.javaproject.protocol.LoginData;
+import com.javaproject.client.main.Main;
+import com.javaproject.protocol.*;
 
 public class LoginForm extends java.awt.Frame {
 

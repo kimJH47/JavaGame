@@ -1,9 +1,7 @@
-package main.java.com.javaproject.client.gui;
+package com.javaproject.client.gui;
 
-import main.java.com.javaproject.client.main.Main;
-import main.java.com.javaproject.protocol.JoinData;
-import main.java.com.javaproject.protocol.SignUpData;
-import org.lwjgl.system.jawt.JAWT;
+import com.javaproject.client.main.Main;
+import com.javaproject.protocol.JoinData;
 
 public class LobbyForm extends java.awt.Frame {
 

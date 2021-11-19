@@ -1,4 +1,4 @@
-package main.java.com.javaproject.client.gui;
+package com.javaproject.client.gui;
 
 
 /*
@@ -7,9 +7,8 @@ package main.java.com.javaproject.client.gui;
  * and open the template in the editor.
  */
 
-import main.java.com.javaproject.client.main.Main;
-import main.java.com.javaproject.protocol.LoginData;
-import main.java.com.javaproject.protocol.SignUpData;
+import com.javaproject.protocol.SignUpData;
+import com.javaproject.client.main.Main;
 
 /**
  *

@@ -1,4 +1,4 @@
-package main.java.com.javaproject.protocol;
+package com.javaproject.protocol;
 
 
 import java.io.Serializable;

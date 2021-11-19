@@ -1,4 +1,4 @@
-package main.java.com.javaproject.protocol;
+package com.javaproject.protocol;
 
 public class ChatData implements Protocol{
     private static final long serialVersionUID = 1L;
