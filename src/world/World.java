@@ -28,7 +28,7 @@ public class World {
 
     private Matrix4f world;
 
-    public static final int Player_Range = 4;
+    public static final int Entity_Range = 10;
 
 
     public World(String world, Camera camera) {
@@ -62,7 +62,8 @@ public class World {
                     int entity_index = (colorEntitySheet[x + y * width] >> 16) & 0xFF;
                     int entity_alpha = (colorEntitySheet[x + y * width] >> 24) & 0xFF;
 
-                    Tile t;
+                    ////타일 나중에 수정정
+                   Tile t;
                     try {
                         t = Tile.tiles[red];
                     }
@@ -70,12 +71,15 @@ public class World {
                         t = null;
                     }
 
-                    if (t != null) setTile(t, x, y);
+
+                    if (t != null) {
+                        setTile(t, x, y);
+                    }
 
                     if (entity_alpha > 0) {
 
-                        Transform[] transforms = new Transform[Player_Range];
-                        for(int i=0;i<Player_Range;i++) {
+                        Transform[] transforms = new Transform[Entity_Range];
+                        for(int i=0;i<Entity_Range;i++) {
                             transforms[i] = new Transform();
                             transforms[i].pos.x = x * 2;
                             transforms[i].pos.y = -y * 2;
@@ -86,13 +90,20 @@ public class World {
                             case 1 :							// Player
                                 Player player = new Player(transforms[entity_index],1);//플레이어 생성
                                 entities.add(player);
-                                camera.getPosition().set(transforms[entity_index].pos.mul(-scale, new Vector3f()));
+                                //camera.getPosition().set(transforms[entity_index].pos.mul(-scale, new Vector3f()));
                                 break;
                             case 2 :
                                 Player player2 = new Player(transforms[entity_index],2);
                                 entities.add(player2);
-                                camera.getPosition().set(transforms[entity_index].pos.mul(-scale, new Vector3f()));
+                                //camera.getPosition().set(transforms[entity_index].pos.mul(-scale, new Vector3f()));
                                 break;
+                            case 3 :
+                                Dalgona dalgona = new Dalgona(transforms[entity_index],0);
+                                entities.add(dalgona);
+                                break;
+                            case 4 :
+                                Dalgona dalgonaDeep = new Dalgona(transforms[entity_index],1);
+                                entities.add(dalgonaDeep);
                             default :
                                 break;
                         }
@@ -151,6 +162,7 @@ public class World {
         for (int i = 0; i < entities.size(); i++) {
             entities.get(i).collideWithTiles(this);
             for (int j = i + 1; j < entities.size(); j++) {
+
                 entities.get(i).collideWithEntity(entities.get(j));
             }
             entities.get(i).collideWithTiles(this);

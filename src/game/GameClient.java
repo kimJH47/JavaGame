@@ -36,7 +36,7 @@ public class GameClient {
         }
 
         Window window = new Window();
-        window.setSize(640, 480);
+        window.setSize(1280, 960);
         window.setFullscreen(false);
         window.createWindow("Game");
 
@@ -91,10 +91,21 @@ public class GameClient {
 
                 if (window.getInput().isKeyReleased(GLFW_KEY_ESCAPE)) {
                     //glfwSetWindowShouldClose(window.getWindow(), true);
+                    world.entities.remove(5);
                     Thread thread = new Thread(()->{
                     MooGgot mg = new MooGgot();
                     mg.active();
                     });thread.start();
+                }
+
+                if (window.getInput().isKeyReleased(GLFW_KEY_H)) {
+                    world = new World(worlds[2],camera);
+                    world.calculateView(window);
+                }
+
+                if (window.getInput().isKeyReleased(GLFW_KEY_J)) {
+                    world = new World(worlds[1],camera);
+                    world.calculateView(window);
                 }
 
                 gui.update(window.getInput());

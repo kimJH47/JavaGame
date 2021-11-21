@@ -46,6 +46,7 @@ public class Player extends Entity {
             else useAnimation(ANIM_IDLE);
 
             camera.getPosition().lerp(transform.pos.mul(-world.getScale(), new Vector3f()), 0.05f);
+            //by this line camera is repositioned when player rendered
         }
         //플레이어 위치 따라다님
     }
