@@ -84,25 +84,6 @@ public class Client {
                     System.out.println("test");
                 }else if(data instanceof SignUpData){
                     analysisSignData((SignUpData) data);
-                }else if (data.getProtocol() == JoinData.JOIN_ROOM) {
-                    //start game client
-                    /*
-                    System.out.println("으악");
-
-                    Thread thread = new Thread(()->{
-                        System.out.println("으악");
-                        new GameClient(1);//Integer.parseInt(data.getName()));
-                    });thread.start();
-                    */
-                    new GameClient(1);
-
-
-                    System.out.println("why wg1232154 ");
-
-                    System.out.println("으악");
-
-                    System.out.printf("%d Room join!  으악\n", roomNum);
-
                 }
             } catch (Exception e) {
                 stopClient();
@@ -162,8 +143,11 @@ public class Client {
                 System.out.println("login failed");
             } else if (data.getProtocol() == JoinData.JOIN_ROOM) {
                 roomNum = Integer.parseInt(data.getMessage());
-                System.out.printf("%d Room join!\n", roomNum);
+                Thread thread = new Thread(()->{
+                    new GameClient(Integer.parseInt(data.getMessage()));
+                });thread.start();
 
+                System.out.printf("%d Room join!\n", roomNum);
             }
 
         } catch (Exception e) {

@@ -1,5 +1,6 @@
 package com.javaproject.server;
 
+import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -82,9 +83,9 @@ public class Main {
     }
 
     //main 시작점
-    public static void main(String[] args) {
+    public static void main(String[] args)throws Exception{
         Main me = new Main();
-        me.startServer("127.0.0.1", 9001);
+        me.startServer(InetAddress.getLoopbackAddress().getHostAddress(), 9001);
         //211.105.145.237
     }
 }
