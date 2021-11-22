@@ -28,10 +28,10 @@ public class DAO {
     public boolean signIn(String user_ID, String user_pw) {
         try {
             System.out.println("login checking");
-            String SQL = "SELECT user_pw FROM user_info WHERE user_id = ?"; // ������ DB�� �Էµ� ��ɾ SQL �������� ����.
+            String SQL = "SELECT user_pw FROM user_info WHERE user_id = ?"; //
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, user_ID);
-            ResultSet rs = pstmt.executeQuery(); // ��� ����� �޾ƿ��� ResultSet Ÿ���� rs ������ �������� ������ ����� �־���
+            ResultSet rs = pstmt.executeQuery(); //
             if (rs.next()) {
                 if (rs.getString(1).contentEquals(user_pw)) {
                     System.out.println("login ");
@@ -63,14 +63,14 @@ public class DAO {
 
         } catch (Exception e) {
             e.printStackTrace();
-            return false; // DB ����
+            return false; // DB
         }
     }
 
     public boolean overCheck(String user_ID) {
 
         try {
-            String SQL = "SELECT user_ID FROM user_info WHERE user_id = ?"; // ������ DB�� �Էµ� ��ɾ SQL �������� ����.
+            String SQL = "SELECT user_ID FROM user_info WHERE user_id = ?"; //
             PreparedStatement pstmt = conn.prepareStatement(SQL);
             pstmt.setString(1, user_ID);
             ResultSet rs = pstmt.executeQuery();
